@@ -4,17 +4,17 @@ clone_depth: 5
 before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
-  - cmd: devenv /upgrade modbus-9.sln
+  - cmd: vcupgrade /overwrite modbus.vcproj
 
 platform:
   - x86
-  - x64
+#  - x64
 
 configuration: Release
 
 build:
   parallel: true
-  project: src\win32\modbus-9.sln
+  project: src\win32\modbus.vcproj
 
 
 on_success:
