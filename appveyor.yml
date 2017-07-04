@@ -7,6 +7,7 @@ before_build:
   - cmd: "\"%VS100COMNTOOLS%\\vcupgrade\" /overwrite modbus.vcproj"
   - ps: echo "#pragma comment(lib, ""Ws2_32.lib"")" | Add-Content C:\projects\libmodbus\src\modbus.c
 
+
 platform:
   - x86
   - x64
