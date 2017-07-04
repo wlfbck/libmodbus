@@ -17,6 +17,9 @@ build:
   parallel: true
   project: src\win32\modbus.vcxproj
 
+after_build:
+  - cmd: 7z a modbus.zip modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
 
-on_success:
-  - cmd: tree /f
+artifacts:
+  - path: modbus.zip
+
