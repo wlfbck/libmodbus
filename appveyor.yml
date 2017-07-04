@@ -2,7 +2,7 @@ image: Visual Studio 2015
 clone_depth: 5
 
 before_build:
-  - cmd: cd src\win32 ; cscript.exe configure.js
+  - cmd: cd C:\projects\libmodbus\src\win32 ; cscript.exe configure.js
 
 platform:
   - x86
