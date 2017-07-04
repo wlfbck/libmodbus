@@ -20,7 +20,7 @@ configuration: Release
 #  parallel: true
 #  project: src\win32\modbus.vcxproj
 build_script:
-  - cmd: C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe "C:\projects\libmodbus\src\win32\modbus.vcxproj" "/pConfiguration=%CONFIGURATION%" "/pPlatform=%PLATFORM%"
+  - cmd: C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe "C:\projects\libmodbus\src\win32\modbus.vcxproj" "/p:Configuration=%CONFIGURATION%" "/p:Platform=%PLATFORM%"
 
 after_build:
   - cmd: tree /f C:\projects\libmodbus\
@@ -29,7 +29,7 @@ after_build:
 artifacts:
   - path: src\win32\modbus.zip
 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
