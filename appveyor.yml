@@ -4,7 +4,6 @@ clone_depth: 5
 before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
-  - cmd: set
   - cmd: "\"%VS100COMNTOOLS%\\vcupgrade\" /overwrite modbus.vcproj"
 
 platform:
@@ -21,5 +20,5 @@ after_build:
   - cmd: 7z a modbus.zip modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
 
 artifacts:
-  - path: modbus.zip
+  - path: C:\projects\libmodbus\src\win32\modbus.zip
 
