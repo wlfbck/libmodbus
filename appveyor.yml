@@ -7,7 +7,7 @@ before_build:
   - cmd: curl https://raw.githubusercontent.com/chemeris/msinttypes/master/stdint.h > ..\stdint.h
 
 platform:
-  - x86
+  - Win32
   - x64
 
 configuration: Release
