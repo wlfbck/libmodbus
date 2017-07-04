@@ -4,7 +4,7 @@ clone_depth: 5
 before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
-  - cmd: tree /f %VS150COMNTOOLS%
+  - cmd: set
   - cmd: devenv /upgrade modbus-9.sln
 
 platform:
