@@ -19,7 +19,7 @@ build:
   project: src\win32\modbus.vcxproj
 
 after_build:
-  - cmd: 7z a modbus.vcxproj modbus.zip modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
+  - cmd: 7z a modbus.zip modbus.vcxproj modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
 
 artifacts:
   - path: src\win32\modbus.zip
