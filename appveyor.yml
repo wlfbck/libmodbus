@@ -11,7 +11,7 @@ before_build:
 
 
 platform:
-  - x86
+  - Win32
   - x64
 
 configuration: Release
@@ -23,7 +23,7 @@ build_script:
   - cmd: C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe "C:\projects\libmodbus\src\win32\modbus.vcproj" "/p:Configuration=%CONFIGURATION%" "/p:Platform=%PLATFORM%"
 
 after_build:
-  - cmd: tree /f C:\projects\libmodbus\
+  - cmd: tree C:\projects\libmodbus /f /a
   - cmd: 7z a modbus.zip modbus.vcxproj modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
 
 artifacts:
