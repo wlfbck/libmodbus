@@ -1,7 +1,7 @@
 image: Visual Studio 2015
 clone_depth: 5
 
-init:
+before_build:
   - cmd: cd src\win32 ; cscript.exe configure.js
 
 platform:
