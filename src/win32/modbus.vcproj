@@ -182,7 +182,7 @@
 				EntryPointSymbol=""
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				TargetMachine="17"
+				TargetMachine="1"
 			/>
 			<Tool
 				Name="VCALinkTool"
