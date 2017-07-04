@@ -1,35 +1,23 @@
 image: Visual Studio 2013
-clone_depth: 5
+clone_depth: 1
 
 before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
-  #- cmd: curl https://raw.githubusercontent.com/chemeris/msinttypes/master/inttypes.h > ..\inttypes.h
   - cmd: curl https://raw.githubusercontent.com/chemeris/msinttypes/master/stdint.h > ..\stdint.h
-#  - cmd: "\"%VS100COMNTOOLS%\\vcupgrade\" /overwrite modbus.vcproj"
-#  - ps: echo "#pragma comment(lib, ""Ws2_32.lib"")" | Add-Content C:\projects\libmodbus\src\modbus.c
-
 
 platform:
-  - Win32
+  - x86
   - x64
 
 configuration: Release
 
-#build:
-#  parallel: true
-#  project: src\win32\modbus.vcxproj
+# the normal build way uses a too new msbuild which fails with the current files
 build_script:
   - cmd: C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe "C:\projects\libmodbus\src\win32\modbus.vcproj" "/p:Configuration=%CONFIGURATION%" "/p:Platform=%PLATFORM%"
 
 after_build:
-  - cmd: tree C:\projects\libmodbus /f /a
-  - cmd: 7z a modbus.zip "%PLATFORM%\%CONFIGURATION%\modbus.dll" "%PLATFORM%\%CONFIGURATION%\modbus.exp" "%PLATFORM%\%CONFIGURATION%\modbus.lib" "%PLATFORM%\%CONFIGURATION%\modbus.pdb" ../modbus.h ../modbus-version.h
+  - cmd: 7z a modbus.zip ".\%PLATFORM%\%CONFIGURATION%\modbus.dll" ".\%PLATFORM%\%CONFIGURATION%\modbus.exp" ".\%PLATFORM%\%CONFIGURATION%\modbus.lib" ".\%PLATFORM%\%CONFIGURATION%\modbus.pdb" ..\stdint.h ..\modbus.h ..\modbus-version.h
 
 artifacts:
   - path: src\win32\modbus.zip
-
-#on_finish:
-#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
-
