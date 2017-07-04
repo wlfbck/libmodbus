@@ -5,7 +5,7 @@ before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
   - cmd: set
-  - cmd: %VS100COMNTOOLS%\vcupgrade /overwrite modbus.vcproj
+  - cmd: "%VS100COMNTOOLS%\vcupgrade /overwrite modbus.vcproj"
 
 platform:
   - x86
