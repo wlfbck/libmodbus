@@ -24,7 +24,7 @@ build_script:
 
 after_build:
   - cmd: tree C:\projects\libmodbus /f /a
-  - cmd: 7z a modbus.zip modbus.vcxproj modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
+  - cmd: 7z a modbus.zip "%PLATFORM%\%CONFIGURATION%\modbus.dll" "%PLATFORM%\%CONFIGURATION%\modbus.exp" "%PLATFORM%\%CONFIGURATION%\modbus.lib" "%PLATFORM%\%CONFIGURATION%\modbus.pdb" ../modbus.h ../modbus-version.h
 
 artifacts:
   - path: src\win32\modbus.zip
