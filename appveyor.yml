@@ -1,0 +1,19 @@
+image: Visual Studio 2015
+clone_depth: 5
+
+init:
+  - cmd: cd src\win32 ; cscript.exe configure.js
+
+platform:
+  - x86
+  - x64
+
+configuration: Release
+
+build:
+  - parallel: true
+  - project: src\win32\modbus-9.sln
+
+
+on_success:
+  - cmd: tree /f
