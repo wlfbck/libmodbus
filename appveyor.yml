@@ -4,6 +4,8 @@ clone_depth: 5
 before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
+  #- cmd: curl https://raw.githubusercontent.com/chemeris/msinttypes/master/inttypes.h > ..\inttypes.h
+  - cmd: curl https://raw.githubusercontent.com/chemeris/msinttypes/master/stdint.h > ..\stdint.h
 #  - cmd: "\"%VS100COMNTOOLS%\\vcupgrade\" /overwrite modbus.vcproj"
 #  - ps: echo "#pragma comment(lib, ""Ws2_32.lib"")" | Add-Content C:\projects\libmodbus\src\modbus.c
 
@@ -14,11 +16,14 @@ platform:
 
 configuration: Release
 
-build:
-  parallel: true
-  project: src\win32\modbus.vcxproj
+#build:
+#  parallel: true
+#  project: src\win32\modbus.vcxproj
+build_script:
+  - cmd: %SYSTEMROOT%\Microsoft.NET\Framework\v3.5\msbuild.exe C:\projects\libmodbus\src\win32\modbus.vcxproj /pConfiguration=%CONFIGURATION% /pPlatform=%PLATFORM%
 
 after_build:
+  - cmd: tree /f C:\projects\libmodbus\
   - cmd: 7z a modbus.zip modbus.vcxproj modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
 
 artifacts:
