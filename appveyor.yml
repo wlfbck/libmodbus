@@ -16,7 +16,7 @@ configuration: Release
 
 # the normal build way uses a too new msbuild which fails with the current files
 build_script:
-  - cmd: "C:\WINDOWS\Microsoft.NET\Framework\v3.5\msbuild.exe" "%APPVEYOR_BUILD_FOLDER%\src\win32\modbus.vcproj" "/p:Configuration=%CONFIGURATION%" "/p:Platform=%PLATFORM%"
+  - cmd: "%%SYSTEMROOT%\Microsoft.NET\Framework\v3.5\msbuild.exe" "%%APPVEYOR_BUILD_FOLDER%\src\win32\modbus.vcproj" "/p:Configuration=%CONFIGURATION%" "/p:Platform=%PLATFORM%"
 
 after_build:
   - cmd: >
