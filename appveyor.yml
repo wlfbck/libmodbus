@@ -20,5 +20,5 @@ after_build:
   - cmd: 7z a modbus.zip modbus.dll modbus.dll.manifest modbus.exp modbus.lib modbus.pdb ../modbus.h ../modbus-version.h
 
 artifacts:
-  - path: C:\projects\libmodbus\src\win32\modbus.zip
+  - path: src\win32\modbus.zip
 
