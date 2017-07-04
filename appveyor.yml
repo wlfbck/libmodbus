@@ -11,8 +11,8 @@ platform:
 configuration: Release
 
 build:
-  - parallel: true
-  - project: src\win32\modbus-9.sln
+  parallel: true
+  project: src\win32\modbus-9.sln
 
 
 on_success:
