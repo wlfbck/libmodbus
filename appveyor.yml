@@ -5,7 +5,7 @@ before_build:
   - cmd: cd C:\projects\libmodbus\src\win32
   - cmd: cscript.exe configure.js
   - cmd: "\"%VS100COMNTOOLS%\\vcupgrade\" /overwrite modbus.vcproj"
-  - ps: echo "#pragma comment(lib, ""Ws2_32.lib"")" >> ..\modbus.c
+  - ps: echo "#pragma comment(lib, ""Ws2_32.lib"")" >> C:\projects\libmodbus\src\modbus.c
   - cmd: type ..\modbus.c
 
 platform:
