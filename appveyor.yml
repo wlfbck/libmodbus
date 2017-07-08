@@ -26,6 +26,8 @@ after_build:
            ..\stdint.h
            ..\modbus.h
            ..\modbus-version.h
+           ..\modbus-tcp.h
+           ..\modbus-rtu.h
            ".\%PLATFORM%\%CONFIGURATION%\modbus.dll"
            ".\%PLATFORM%\%CONFIGURATION%\modbus.exp"
            ".\%PLATFORM%\%CONFIGURATION%\modbus.lib"
