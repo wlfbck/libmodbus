@@ -28,10 +28,10 @@ after_build:
            ..\modbus-version.h
            ..\modbus-tcp.h
            ..\modbus-rtu.h
-           ".\%PLATFORM%\%CONFIGURATION%\modbus.dll"
-           ".\%PLATFORM%\%CONFIGURATION%\modbus.exp"
-           ".\%PLATFORM%\%CONFIGURATION%\modbus.lib"
-           ".\%PLATFORM%\%CONFIGURATION%\modbus.pdb"
+           ".\%PLATFORM%\%CONFIGURATION%\modbus-x64.dll"
+           ".\%PLATFORM%\%CONFIGURATION%\modbus-x64.exp"
+           ".\%PLATFORM%\%CONFIGURATION%\modbus-x64.lib"
+           ".\%PLATFORM%\%CONFIGURATION%\modbus-x64.pdb"
 
 artifacts:
   - path: src\win32\modbus.zip
